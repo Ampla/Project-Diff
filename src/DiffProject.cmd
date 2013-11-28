@@ -1,5 +1,11 @@
 rem @echo off
 
+set nxslt=..\lib\nxslt\nxslt.exe
+set graphviz=..\lib\GraphViz-2.30.1\bin
+set dotml=..\lib\dotml-1.4
+set xsltproc=..\lib\libxml\bin\xsltproc.exe 
+set winmerge="D:\Program Files (x86)\WinMerge\WinMergeU.exe" 
+
 set project=AmplaProject.xml
 set authstore=AuthStore.xml
 
@@ -22,11 +28,6 @@ rmdir Working\Development /S /Q
 :Working_development_create
 mkdir Working\Development
 
-set nxslt=..\lib\nxslt\nxslt.exe
-set graphviz=..\lib\GraphViz-2.30.1\bin
-set dotml=..\lib\dotml-1.4
-set xsltproc=..\lib\libxml\bin\xsltproc.exe 
-
 set directory=%production%
 set type=Production
 
@@ -40,4 +41,7 @@ set type=Development
 @echo === Normalise ===
 %nxslt% %directory%%project% StyleSheets\Project.Normalize.xslt -o Working\%type%\project.xml 
 %xsltproc% -o Working\%type%\output.files.xml StyleSheets\Output.Project.Files.xslt Working\%type%\project.xml 
+
+%winmerge% Working\Development Working\Production /r
+
 
