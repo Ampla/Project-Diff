@@ -11,6 +11,9 @@
 	
 	<xsl:include href='Include.Project.Properties.xslt'/>
 	<xsl:include href='Include.Code.xslt'/>
+	<xsl:include href='Include.Class.Equipment.xslt'/>
+	<xsl:include href='Include.Class.Material.xslt'/>
+	<xsl:include href='Include.Class.Personnel.xslt'/>
 	<xsl:include href='Include.Production.ReportingPoint.xslt'/>
 	<xsl:include href='Include.Downtime.ReportingPoint.xslt'/>
 	<xsl:include href='Include.Quality.ReportingPoint.xslt'/>
