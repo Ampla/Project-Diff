@@ -1,0 +1,3 @@
+<Project>
+	<Transform name='Ampla Version' input='AmplaProject.xml' stylesheet='Compare.Ampla.Version.xslt' output="Ampla.Version.xml"/>	
+</Project>
