@@ -5,7 +5,7 @@
     >
 
   <xsl:template match="Reference/Type" mode="output-file">
-	<xsl:value-of select="concat('Type\', ../@name, '\', @name, '.xml')"/>
+	<xsl:value-of select="concat('Type\', ../@name, '\', @name, '.txt')"/>
   </xsl:template>
 
   <xsl:template match="Reference/Type" mode="output-mode">text</xsl:template>
