@@ -11,6 +11,7 @@
 	
 	<xsl:include href='Include.Ampla.Version.xslt'/>
 	<xsl:include href='Include.Code.xslt'/>
+	<xsl:include href='Include.Production.ReportingPoint.xslt'/>
 	
 	<xsl:template match="/">
 		<xsl:element name="Output">
