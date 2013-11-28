@@ -9,11 +9,12 @@
 
 	<xsl:include href='Include.Defaults.xslt'/>
 	
-	<xsl:include href='Include.Ampla.Version.xslt'/>
+	<xsl:include href='Include.Project.Properties.xslt'/>
 	<xsl:include href='Include.Code.xslt'/>
 	<xsl:include href='Include.Production.ReportingPoint.xslt'/>
 	<xsl:include href='Include.Downtime.ReportingPoint.xslt'/>
 	<xsl:include href='Include.Quality.ReportingPoint.xslt'/>
+	<xsl:include href='Include.Reference.Type.xslt'/>
 	
 	<xsl:template match="/">
 		<xsl:element name="Output">

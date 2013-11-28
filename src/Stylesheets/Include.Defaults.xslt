@@ -2,6 +2,10 @@
 <xsl:stylesheet version="1.0" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 	>
+	
+	<xsl:variable name="comma" select="','"/>
+	<xsl:variable name="crlf" select="'&#xD;&#xA;'"/>
+	<xsl:variable name="cr" select="'&#xD;'"/>
 		
 	<!-- default template to include files -->
 	<xsl:template match='*' mode='output-file'>
