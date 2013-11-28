@@ -15,6 +15,7 @@
 	<xsl:include href='Include.Downtime.ReportingPoint.xslt'/>
 	<xsl:include href='Include.Quality.ReportingPoint.xslt'/>
 	<xsl:include href='Include.Planning.ReportingPoint.xslt'/>
+	<xsl:include href='Include.Maintenance.ReportingPoint.xslt'/>
 	<xsl:include href='Include.Reference.Type.xslt'/>
 	
 	<xsl:template match="/">
