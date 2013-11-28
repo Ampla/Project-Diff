@@ -125,9 +125,11 @@
 
   <xsl:template match="ClassDefinition[@id]">
     <xsl:element name="Item">
+<!--
       <xsl:attribute name="hash">
         <xsl:value-of select="generate-id()"/>
       </xsl:attribute>
+-->
       <xsl:apply-templates select="@id"/>
       <xsl:apply-templates select="@name"/>
       <xsl:attribute name="class">true</xsl:attribute>
@@ -189,9 +191,11 @@
   </xsl:template>
 
   <xsl:template name="addItemAttributes">
+<!--
     <xsl:attribute name="hash">
       <xsl:value-of select="generate-id()"/>
     </xsl:attribute>
+-->
     <xsl:apply-templates select="@id"/>
     <xsl:apply-templates select="@name"/>
     <xsl:apply-templates select="@type"/>
@@ -423,14 +427,11 @@
       <xsl:call-template name="addItemAttributes"/>
       <xsl:apply-templates select="Property"/>
       <xsl:call-template name="addPropertyDisplayOrder"/>
-
       <xsl:call-template name="addDefaultProperty">
         <xsl:with-param name="propertyName">Authentication</xsl:with-param>
         <xsl:with-param name="defaultValue">WindowsIntegrated</xsl:with-param>
       </xsl:call-template>
-
       <xsl:apply-templates select="Item"/>
-
     </xsl:element>
   </xsl:template>
 
@@ -448,24 +449,6 @@
     </xsl:element>
   </xsl:template>
 
-  <!--                 
-    <Item name="Corrida" id="936f0bec-d791-4df6-8472-04f713af989a" reference="Citect.Ampla.Production.Server" type="Citect.Ampla.Production.Server.ProductionFieldDefinition">
-      <Property name="CaptureValueForManualRecords">True</Property>
-      <Property name="HistoricalFieldExpression" valueIsXml="True"><HistoricalExpressionConfig><ExpressionConfig format="" compileAction="Compile" /><DependencyCollection /></HistoricalExpressionConfig></Property>
-      <Property name="RefreshOnManualEntry">True</Property>
-    </Item>
--->
-  <xsl:template match="Item[@id]/Property[@name='HistoricalFieldExpression']/HistoricalExpressionConfig/ExpressionConfig[@format='']">
-    <xsl:variable name="captureManual" select="../../../Property[@name='CaptureValueForManualRecords' and text()='True']"/>
-    <xsl:variable name="refreshManual" select="../../../Property[@name='RefreshOnManualEntry' and text()='True']"/>
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <xsl:if test="$captureManual and $refreshManual">
-        <xsl:attribute name="message">No expression specified for Manual records.</xsl:attribute>
-      </xsl:if>
-      <xsl:apply-templates select="node()"/>
-    </xsl:copy>
-  </xsl:template>
   
   <xsl:template match="Property[@name='Home']">
     <xsl:copy>
@@ -801,142 +784,6 @@
       </xsl:choose>
     </xsl:copy>
   </xsl:template>
-
-  <!--
-  <Item name="DecisionMatrix" id="2e2b2863-ce00-4f8c-907b-abb5c63a03fa" reference="Citect.Ampla.General.Server" type="Citect.Ampla.General.Server.DecisionMatrix">
-    <Item name="Input1" id="ad375879-ba46-4c44-b8da-5c1ad456802b" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable">
-      <Property name="Sample">0001-01-01 00:00:00.0000000|BadUninitialized|Boolean|False</Property>
-      <Property name="SampleTypeCode">Boolean</Property>
-    </Item>
-    <Item name="Input2" id="270f7ee3-836c-4cab-b998-60df07259aaf" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable">
-      <Property name="Sample">0001-01-01 00:00:00.0000000|BadUninitialized|Boolean|False</Property>
-      <Property name="SampleTypeCode">Boolean</Property>
-    </Item>
-    <Item name="Input3" id="581f3da6-aacc-4fdf-a6f8-ebe95e0009f7" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable">
-      <Property name="Sample">0001-01-01 00:00:00.0000000|BadUninitialized|Boolean|False</Property>
-      <Property name="SampleTypeCode">Boolean</Property>
-    </Item>
-    <Item name="Input4" id="c31f2840-9366-4042-854f-92f4119d1a4b" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable">
-      <Property name="Sample">0001-01-01 00:00:00.0000000|BadUninitialized|Boolean|False</Property>
-      <Property name="SampleTypeCode">Boolean</Property>
-    </Item>
-    <Item name="Rule1" id="44638036-48cb-462e-8538-e27949d626e7" reference="Citect.Ampla.General.Server" type="Citect.Ampla.General.Server.DecisionMatrixRule">
-      <Property name="DisplayOrder">1000</Property>
-      <Property name="DisplayOrderGroup">6</Property>
-      <Property name="Input1">True</Property>
-      <Item name="Output1" id="5c79872d-d1c9-443d-a542-1eac1addba1c" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-      <Item name="Output2" id="fe21bb51-3ebd-4741-bb31-2280cb21c447" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-      <Item name="Output3" id="7f9070a1-8037-401b-b3ad-bbbe46e0dbc6" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-    </Item>
-    <Item name="Rule2" id="20fb8b44-474b-479d-b87d-89707607b119" reference="Citect.Ampla.General.Server" type="Citect.Ampla.General.Server.DecisionMatrixRule">
-      <Property name="DisplayOrder">1000</Property>
-      <Property name="DisplayOrderGroup">6</Property>
-      <Property name="Input2">True</Property>
-      <Item name="Output1" id="a09701e8-9ef8-405c-85eb-eefc533ee945" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-      <Item name="Output2" id="bad9b87a-4f71-4233-9ba4-15f64dd56755" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-      <Item name="Output3" id="fbedff4f-9407-4a6e-9565-38ff785693be" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-    </Item>
-    <Item name="Rule3" id="b091f482-fb8d-424e-b4c5-565d994407c6" reference="Citect.Ampla.General.Server" type="Citect.Ampla.General.Server.DecisionMatrixRule">
-      <Property name="DisplayOrder">1000</Property>
-      <Property name="DisplayOrderGroup">6</Property>
-      <Property name="Input3">True</Property>
-      <Item name="Output1" id="13b3d1dd-b146-4cab-a83b-626f83452677" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-      <Item name="Output2" id="c9b18407-861f-4d00-845c-1990cc8f49eb" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-      <Item name="Output3" id="c6e2fb36-71c9-4fa6-a192-59425dc164d8" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-    </Item>
-    <Item name="Rule4" id="69a10f59-44f9-496f-a9e8-eaadcd06d010" reference="Citect.Ampla.General.Server" type="Citect.Ampla.General.Server.DecisionMatrixRule">
-      <Property name="DisplayOrder">1000</Property>
-      <Property name="DisplayOrderGroup">6</Property>
-      <Property name="Input4">True</Property>
-      <Item name="Output1" id="48d65a8d-2d46-4261-bbe9-0ba002793f2a" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-      <Item name="Output2" id="b2f8516d-b51b-4782-a98e-7e6359c832cf" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-      <Item name="Output3" id="77137bc7-d13f-499a-8ac6-ceab2bae619f" reference="Citect.Ampla.StandardItems" type="Citect.Ampla.StandardItems.CalculatedVariable" />
-    </Item>
-  </Item>
--->
-
-  <xsl:template match="Item[@type='Citect.Ampla.General.Server.DecisionMatrix']">
-    <xsl:element name="Item">
-      <xsl:call-template name="addItemAttributes"/>
-      <xsl:for-each select="Item[@type='Citect.Ampla.StandardItems.CalculatedVariable']">
-        <xsl:element name="Input">
-          <xsl:attribute name="hash">
-            <xsl:value-of select="generate-id()"/>
-          </xsl:attribute>
-          <xsl:apply-templates select="@id"/>
-          <xsl:apply-templates select="@name"/>
-
-          <xsl:attribute name="displayOrder">
-            <xsl:choose>
-              <xsl:when test="Property[@name='DisplayOrder']">
-                <xsl:value-of select="Property[@name='DisplayOrder']"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="$defaultDisplayOrder"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
-          <xsl:element name="ItemLink">
-            <xsl:attribute name="targetID">
-              <xsl:value-of select="@id"/>
-            </xsl:attribute>
-            <xsl:attribute name="absolutePath">
-              <xsl:call-template name="getItemFullName"/>
-            </xsl:attribute>
-          </xsl:element>
-        </xsl:element>
-      </xsl:for-each>
-      <xsl:call-template name="addPropertyDisplayOrder"/>
-      <xsl:apply-templates select="Property"/>
-      <xsl:apply-templates select="Item"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="Item[@type='Citect.Ampla.General.Server.DecisionMatrixRule']">
-    <xsl:element name="Item">
-      <xsl:call-template name="addItemAttributes"/>
-      <xsl:variable name="properties" select="Property"/>
-      <xsl:for-each select="../Item[@type='Citect.Ampla.StandardItems.CalculatedVariable']">
-        <xsl:element name="InputRule">
-          <xsl:attribute name="name">
-            <xsl:value-of select="@name"/>
-          </xsl:attribute>
-          <xsl:attribute name="displayOrder">
-            <xsl:choose>
-              <xsl:when test="Property[@name='DisplayOrder']">
-                <xsl:value-of select="Property[@name='DisplayOrder']"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="$defaultDisplayOrder"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
-          <xsl:attribute name="value">
-            <xsl:variable name="name" select="@name"/>
-            <xsl:choose>
-              <xsl:when test="$properties[@name=$name]">
-                <xsl:value-of select="$properties[@name=$name]"/>
-              </xsl:when>
-              <xsl:otherwise>Ignore</xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
-          <xsl:element name="ItemLink">
-            <xsl:attribute name="targetID">
-              <xsl:value-of select="@id"/>
-            </xsl:attribute>
-            <xsl:attribute name="absolutePath">
-              <xsl:call-template name="getItemFullName"/>
-            </xsl:attribute>
-          </xsl:element>
-        </xsl:element>
-      </xsl:for-each>
-      <xsl:call-template name="addPropertyDisplayOrder"/>
-      <!-- </xsl:element> -->
-      <xsl:apply-templates select="Property"/>
-      <xsl:apply-templates select="Item"/>
-    </xsl:element>
-  </xsl:template>
-
 
   <xsl:template match="@*">
     <xsl:copy/>    
