@@ -16,8 +16,12 @@
 	
 	<xsl:template match='*' mode='copy'>
 		<xsl:copy>
-			<xsl:apply-templates select='@*' mode='copy'/>
-			<xsl:apply-templates select='node()' mode='copy'/>
+			<xsl:apply-templates select='@*' mode='copy'>
+				<xsl:sort select='name()'/>
+			</xsl:apply-templates>
+			<xsl:apply-templates select='node()' mode='copy'>
+				<xsl:sort select='@name'/>
+			</xsl:apply-templates>
 		</xsl:copy>
 	</xsl:template>
 	
