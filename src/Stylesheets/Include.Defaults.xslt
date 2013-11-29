@@ -6,7 +6,9 @@
 	<xsl:variable name="comma" select="','"/>
 	<xsl:variable name="crlf" select="'&#xD;&#xA;'"/>
 	<xsl:variable name="cr" select="'&#xD;'"/>
-		
+	<xsl:variable name="quote">"</xsl:variable>
+	<xsl:variable name="space" select="'    '"/>
+	
 	<!-- default template to include files -->
 	<xsl:template match='*' mode='output-file'>
 		<!-- Return the filename here for the file --> 

@@ -6,11 +6,13 @@
 				>
 
 	<xsl:output method="xml" indent="yes"/>
-
+	
 	<xsl:include href='Include.Defaults.xslt'/>
+	<xsl:include href='Include.xml2json.xslt'/>
 	
 	<xsl:include href='Include.Project.Properties.xslt'/>
 	<xsl:include href='Include.Code.xslt'/>
+	<xsl:include href='Include.Data.Repository.xslt'/>
 	<xsl:include href='Include.Class.Equipment.xslt'/>
 	<xsl:include href='Include.Class.Material.xslt'/>
 	<xsl:include href='Include.Class.Personnel.xslt'/>
