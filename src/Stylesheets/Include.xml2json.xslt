@@ -7,7 +7,6 @@
 	<xsl:template match='*' mode='json'>
 		<xsl:param name='indent'/>
 		<xsl:value-of select="concat($indent, '{ ', $quote, name(), $quote, ' :', $crlf)"/>
-		
 		<xsl:value-of select="concat($indent, $space, '{', $crlf)"/>	
 		
 		<!-- Attributes -->
@@ -72,17 +71,27 @@
 		<xsl:param name='indent'/>
 		<xsl:choose>
 			<xsl:when test="name(preceding-sibling::*[1]) = name(current()) and name(following-sibling::*[1]) != name(current())">
-					<xsl:apply-templates select="." mode="obj-content" />
-				<xsl:text>]</xsl:text>
-				<xsl:if test="count(following-sibling::*[name() != name(current())]) &gt; 0">, </xsl:if>
+				<xsl:apply-templates select="." mode="obj-content" />
+				<xsl:variable name='inc-comma'>
+					<xsl:if test='count(following-sibling::*[name() != name(current())]) &gt; 0'>, </xsl:if>
+				</xsl:variable>
+				<xsl:value-of select="concat($indent, '] ', $inc-comma, $crlf)"/>
 			</xsl:when>
 			<xsl:when test="name(preceding-sibling::*[1]) = name(current())">
-					<xsl:apply-templates select="." mode="obj-content" />
-					<xsl:if test="name(following-sibling::*) = name(current())">, </xsl:if>
+				<xsl:apply-templates select="." mode="obj-content">
+					<xsl:with-param name='indent' select="concat($indent, $space)"/>
+					<xsl:sort select='@name'/>
+				</xsl:apply-templates>
+				<xsl:if test="name(following-sibling::*) = name(current())">, </xsl:if>
 			</xsl:when>
 			<xsl:when test="following-sibling::*[1][name() = name(current())]">
 				<xsl:text>"</xsl:text><xsl:value-of select="name()"/><xsl:text>" : [</xsl:text>
-					<xsl:apply-templates select="." mode="obj-content" /><xsl:text>, </xsl:text> 
+				<xsl:apply-templates select="." mode="obj-content">
+					<xsl:with-param name='indent' select="concat($indent, $space)"/>
+					<xsl:sort select='@name'/>
+				</xsl:apply-templates>
+				<xsl:variable name='inc-comma'>,</xsl:variable>
+				<xsl:value-of select="concat($indent, $inc-comma, $crlf)"/>
 			</xsl:when>
 			<xsl:when test="count(./child::*) > 0 or count(@*) > 0">
 				<xsl:text>"</xsl:text><xsl:value-of select="name()"/>" : <xsl:apply-templates select="." mode="obj-content" />
