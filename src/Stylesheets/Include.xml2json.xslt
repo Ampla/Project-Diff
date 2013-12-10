@@ -48,7 +48,7 @@
 		<xsl:value-of select="concat($indent, $quote, name(), $quote, ' : ', $quote, ., $quote, $inc-comma, $crlf)"/>
 	</xsl:template>
 	
-	<xsl:template match='Item/Property[(count(./child::*) + count(@*)) = 1]' mode='json'>
+	<xsl:template match='Item/Property[not(*)]' mode='json'>
 		<xsl:param name='indent'/>
 		<xsl:variable name='inc-comma'>
 			<xsl:if test='position() &lt; last()'>, </xsl:if>
@@ -56,7 +56,7 @@
 		<xsl:value-of select="concat($indent, $quote, @name, $quote, ' : ', $quote, ., $quote, $inc-comma, $crlf)"/>
 	</xsl:template>
 	
-	<xsl:template match='Item/Property' mode='json'>
+	<xsl:template match='Item/Property[*]' mode='json'>
 		<xsl:param name='indent'/>
 		<xsl:value-of select="concat($indent, $quote, @name, $quote, ' : ', $crlf)"/>
 		<xsl:value-of select="concat($indent, $space, '{ ', $crlf)"/>
