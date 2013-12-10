@@ -28,7 +28,7 @@ File Structure
   * *Where the intermediate files are placed*
 * **src** directory
   * *Source files*
-* **lib:: directory
+* **lib** directory
   * *libraries that are used*
 
 Output templates
@@ -166,5 +166,13 @@ System Configuration.Lookup Lists.Classifications.Unscheduled Loss Other - ULO
       }
   }
 ```
+
+Screenshots
+===
+The screenshots show the ***WinMerge*** output when there is a difference in one of the code items. 
+
+![Directory Differences](./images/WinMerge.Directory.PNG)
+
+![File Differences](./images/WinMerge.Differences.PNG)
 
   
