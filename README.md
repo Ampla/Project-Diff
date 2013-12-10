@@ -5,13 +5,31 @@ Compare two Ampla projects by extracting key components.
 
 Often when projects migrating from Development to Production it can be very difficult to understand what is different.
 
-There are a number of good diff tools such as [http://winmerge.org/](WinMerge), but the challenge is the standard Project Export and Authstore files are too complex.
+There are a number of good diff tools such as [http://winmerge.org/](http://winmerge.org/), but the challenge is the standard Project Export and Authstore files are too complex.
 
 What is does.
 ===
 Project-Diff will run a set of scripts over an AmplaProject and Authstore file to extract the configuration into a standard text format that can be easily compared.  
 
 When the project is analysed, a set of templates are used to match particular items and output the configuration in either an xml or text format.  A JSON like format can be useful for comparing the structure of the project.
+
+File Structure
+===
+* **Development** directory
+  * *Where the Development AmplaProject.xml file is placed*
+* **Production** directory
+  * *Where the Production AmplaProject.xml file is placed*
+* **Output** directory
+  * **Development** directory 
+    * *```Development``` output files are placed here*
+  * **Production** directory
+    * *```Production``` output files are placed here*
+* **Working** directory
+  * *Where the intermediate files are placed*
+* **src** directory
+  * *Source files*
+* **lib:: directory
+  * *libraries that are used*
 
 Output templates
 ===
