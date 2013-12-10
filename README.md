@@ -74,7 +74,7 @@ System Configuration.Lookup Lists.Classifications.Unscheduled Loss Other - ULO
     "fullName" : "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables", 
     "id" : "19a09b93-58c4-493f-a982-7eed15e11d1e", 
     "name" : "Consumables", 
-    "type" : "Citect.Ampla.Production.Server.ProductionReportingPoint"
+    "type" : "Citect.Ampla.Production.Server.ProductionReportingPoint",
     "Property" :
         {
         "DisplayOrder" : "50008"
@@ -114,7 +114,7 @@ System Configuration.Lookup Lists.Classifications.Unscheduled Loss Other - ULO
                     "Property" :
                         {
                         "AllowedValuesLookupList" : "System Configuration.Lookup Lists.Block IDs",
-						"AllowedValuesType" : "LookupList"
+			"AllowedValuesType" : "LookupList",
                         "DataType" : "String",
                         "DisplayOrder" : "50220",
                         "FieldType" : "ID",
@@ -160,9 +160,9 @@ System Configuration.Lookup Lists.Classifications.Unscheduled Loss Other - ULO
 									}
 								}
 							},
-						"PasteInGrid" : "True",
-            "ShowInDetails" : : "True",
-          }
+			"PasteInGrid" : "True",
+            		"ShowInDetails" : : "True",
+          	}
           ]
       }
   }
