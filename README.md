@@ -86,7 +86,7 @@ System Configuration.Lookup Lists.Classifications.Unscheduled Loss Other - ULO
             "fullName" : "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables.Conditions", 
             "id" : "4b00cc08-d973-41d4-abcb-0c1fd8acbd31", 
             "name" : "Conditions", 
-            "type" : "Citect.Ampla.General.Server.ConditionsFolder"
+            "type" : "Citect.Ampla.General.Server.ConditionsFolder",
             "Property" :
                 {
                 "DisplayOrder" : "50008"
@@ -98,11 +98,11 @@ System Configuration.Lookup Lists.Classifications.Unscheduled Loss Other - ULO
             "fullName" : "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables.Fields", 
             "id" : "25e7cf8c-e6af-4213-b337-457dcc289ebf", 
             "name" : "Fields", 
-            "type" : "Citect.Ampla.Production.Server.ProductionFieldsFolder"
+            "type" : "Citect.Ampla.Production.Server.ProductionFieldsFolder",
             "Property" :
                 {
                 "DisplayOrder" : "50000"
-				}
+		},
             "Item" :
                 [
                 { "Item" :
@@ -110,15 +110,15 @@ System Configuration.Lookup Lists.Classifications.Unscheduled Loss Other - ULO
                     "fullName" : "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables.Fields.Block ID", 
                     "id" : "fd0a9725-a3bd-4f01-862e-a5c48c51bfd6", 
                     "name" : "Block ID", 
-                    "type" : "Citect.Ampla.Production.Server.ProductionFieldDefinition"
+                    "type" : "Citect.Ampla.Production.Server.ProductionFieldDefinition",
                     "Property" :
                         {
                         "AllowedValuesLookupList" : "System Configuration.Lookup Lists.Block IDs",
 						"AllowedValuesType" : "LookupList"
-                        "DataType" : "String"
-                        "DisplayOrder" : "50220"
-                        "FieldType" : "ID"
-                        "Filterable" : "True"
+                        "DataType" : "String",
+                        "DisplayOrder" : "50220",
+                        "FieldType" : "ID",
+                        "Filterable" : "True",
                         "HistoricalFieldExpression" : 
                             { 
 							"HistoricalExpressionConfig" :     
@@ -163,6 +163,7 @@ System Configuration.Lookup Lists.Classifications.Unscheduled Loss Other - ULO
 						"PasteInGrid" : "True",
             "ShowInDetails" : : "True",
           }
+          ]
       }
   }
 ```
