@@ -50,10 +50,10 @@ Output templates
   * Personnel
 
 
-Example outputs include
+Example output
 ===
 
-**List of Outputs**
+**List of items of each type**
 
 ```
 Type : Citect.Ampla.General.Server.Classification
