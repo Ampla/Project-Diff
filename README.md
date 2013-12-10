@@ -69,103 +69,93 @@ System Configuration.Lookup Lists.Classifications.Unscheduled Loss Other - ULO
 **JSON like format**
 
 ```JSON
-{ "Item" :
-    {
-    "fullName" : "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables", 
-    "id" : "19a09b93-58c4-493f-a982-7eed15e11d1e", 
-    "name" : "Consumables", 
-    "type" : "Citect.Ampla.Production.Server.ProductionReportingPoint",
-    "Property" :
-        {
-        "DisplayOrder" : "50008"
-        }
-    "Item" :
-        [
-        { "Item" :
+{
+    "Item": {
+        "fullName": "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables",
+        "id": "19a09b93-58c4-493f-a982-7eed15e11d1e",
+        "name": "Consumables",
+        "type": "Citect.Ampla.Production.Server.ProductionReportingPoint",
+        "Property": {
+            "DisplayOrder": "50008"
+        },
+        "Item": [
             {
-            "fullName" : "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables.Conditions", 
-            "id" : "4b00cc08-d973-41d4-abcb-0c1fd8acbd31", 
-            "name" : "Conditions", 
-            "type" : "Citect.Ampla.General.Server.ConditionsFolder",
-            "Property" :
-                {
-                "DisplayOrder" : "50008"
+                "Item": {
+                    "fullName": "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables.Conditions",
+                    "id": "4b00cc08-d973-41d4-abcb-0c1fd8acbd31",
+                    "name": "Conditions",
+                    "type": "Citect.Ampla.General.Server.ConditionsFolder",
+                    "Property": {
+                        "DisplayOrder": "50008"
+                    }
+                }
+            },
+            {
+                "Item": {
+                    "fullName": "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables.Fields",
+                    "id": "25e7cf8c-e6af-4213-b337-457dcc289ebf",
+                    "name": "Fields",
+                    "type": "Citect.Ampla.Production.Server.ProductionFieldsFolder",
+                    "Property": {
+                        "DisplayOrder": "50000"
+                    },
+                    "Item": [
+                        {
+                            "Item": {
+                                "fullName": "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables.Fields.Block ID",
+                                "id": "fd0a9725-a3bd-4f01-862e-a5c48c51bfd6",
+                                "name": "Block ID",
+                                "type": "Citect.Ampla.Production.Server.ProductionFieldDefinition",
+                                "Property": {
+                                    "AllowedValuesLookupList": "System Configuration.Lookup Lists.Block IDs",
+                                    "AllowedValuesType": "LookupList",
+                                    "DataType": "String",
+                                    "DisplayOrder": "50220",
+                                    "FieldType": "ID",
+                                    "Filterable": "True",
+                                    "HistoricalFieldExpression": {
+                                        "HistoricalExpressionConfig": {
+                                            "ExpressionConfig": {
+                                                "format": "#ItemReference0#.Samples[time]",
+                                                "compileAction": "Compile",
+                                                "filterValues": "False",
+                                                "text": "Project.[System Configuration].[Data Sources].OsiPiHDA.NORTH.[HCM_CHPPNTH_BLOCK].Samples[time]"
+                                            },
+                                            "ItemLinkCollection": {
+                                                "ItemLink": {
+                                                    "relativePath": "Parent.Parent.Parent.Parent.Parent.Parent.Parent.System Configuration.Data Sources.OsiPiHDA.NORTH.HCM_CHPPNTH_BLOCK",
+                                                    "absolutePath": "System Configuration.Data Sources.OsiPiHDA.NORTH.HCM_CHPPNTH_BLOCK",
+                                                    "targetID": "045aa05d-a9b8-4e47-a75b-2c17c3f38ae0",
+                                                    "resolveMode": "Smart"
+                                                }
+                                            }
+                                        },
+                                        "DependencyCollection": {
+                                            "Dependency": {
+                                                "dependencyType": "TriggerOperand",
+                                                "ItemPropertyLink": {
+                                                    "propertyName": "Samples",
+                                                    "ItemLink": {
+                                                        "relativePath": "Parent.Parent.Parent.Parent.Parent.Parent.Parent.System Configuration.Data Sources.OsiPiHDA.NORTH.HCM_CHPPNTH_BLOCK",
+                                                        "absolutePath": "System Configuration.Data Sources.OsiPiHDA.NORTH.HCM_CHPPNTH_BLOCK",
+                                                        "targetID": "045aa05d-a9b8-4e47-a75b-2c17c3f38ae0",
+                                                        "resolveMode": "Smart"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "PasteInGrid": "True",
+                                    "ShowInDetails": "True"
+                                }
+                            }
+                        }
+                    ]
                 }
             }
-        }
-        { "Item" :
-            {
-            "fullName" : "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables.Fields", 
-            "id" : "25e7cf8c-e6af-4213-b337-457dcc289ebf", 
-            "name" : "Fields", 
-            "type" : "Citect.Ampla.Production.Server.ProductionFieldsFolder",
-            "Property" :
-                {
-                "DisplayOrder" : "50000"
-		},
-            "Item" :
-                [
-                { "Item" :
-                    {
-                    "fullName" : "Schneider Coal.Yellow Rock Mine.Fixed Plant.CHPP Red.Consumables.Fields.Block ID", 
-                    "id" : "fd0a9725-a3bd-4f01-862e-a5c48c51bfd6", 
-                    "name" : "Block ID", 
-                    "type" : "Citect.Ampla.Production.Server.ProductionFieldDefinition",
-                    "Property" :
-                        {
-                        "AllowedValuesLookupList" : "System Configuration.Lookup Lists.Block IDs",
-			"AllowedValuesType" : "LookupList",
-                        "DataType" : "String",
-                        "DisplayOrder" : "50220",
-                        "FieldType" : "ID",
-                        "Filterable" : "True",
-                        "HistoricalFieldExpression" : 
-                            { 
-							"HistoricalExpressionConfig" :     
-								{
-								"ExpressionConfig" :     
-									{
-									"format" : "#ItemReference0#.Samples[time]", 
-									"compileAction" : "Compile", 
-									"filterValues" : "False", 
-									"text" : "Project.[System Configuration].[Data Sources].OsiPiHDA.NORTH.[HCM_CHPPNTH_BLOCK].Samples[time]"
-									},
-								"ItemLinkCollection" :     
-								{
-									"ItemLink" :     
-									{
-											"relativePath" : "Parent.Parent.Parent.Parent.Parent.Parent.Parent.System Configuration.Data Sources.OsiPiHDA.NORTH.HCM_CHPPNTH_BLOCK", 
-											"absolutePath" : "System Configuration.Data Sources.OsiPiHDA.NORTH.HCM_CHPPNTH_BLOCK", 
-											"targetID" : "045aa05d-a9b8-4e47-a75b-2c17c3f38ae0", 
-											"resolveMode" : "Smart", 
-									}
-								}
-							},
-							"DependencyCollection" :     
-								{
-								"Dependency" :     
-									{
-									"dependencyType" : "TriggerOperand",
-									"ItemPropertyLink" :     
-										{
-										"propertyName" : "Samples", 
-										"ItemLink" :     
-											{
-												"relativePath" : "Parent.Parent.Parent.Parent.Parent.Parent.Parent.System Configuration.Data Sources.OsiPiHDA.NORTH.HCM_CHPPNTH_BLOCK", 
-												"absolutePath" : "System Configuration.Data Sources.OsiPiHDA.NORTH.HCM_CHPPNTH_BLOCK", 
-												"targetID" : "045aa05d-a9b8-4e47-a75b-2c17c3f38ae0", 
-												"resolveMode" : "Smart"
-											}
-										}
-									}
-								}
-							},
-			"PasteInGrid" : "True",
-            		"ShowInDetails" : : "True",
-          	}
-          ]
-      }
-  }
+        ]
+    }
+}
 ```
 
 Screenshots
