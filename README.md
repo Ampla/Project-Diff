@@ -167,3 +167,7 @@ The screenshots show the ***WinMerge*** output when there is a difference in one
 ![File Differences](./images/WinMerge.Differences.PNG)
 
   
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Ampla/project-diff/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
