@@ -24,6 +24,7 @@
 	<xsl:include href='Include.Metrics.ReportingPoint.xslt'/>
 	<xsl:include href='Include.Reference.Type.xslt'/>
 	<xsl:include href='Include.User.Details.xslt'/>
+	<xsl:include href='Include.Actions.xslt'/>
 	
 	<xsl:template match="/">
 		<xsl:element name="Output">

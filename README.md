@@ -50,6 +50,7 @@ Output templates
   * Users
   * Data Repository
   * Code items
+  * Action items
   
 Example output
 ===
