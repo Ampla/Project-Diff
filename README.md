@@ -34,8 +34,6 @@ File Structure
 Output templates
 ===
 
-* Code items
-* Data Repository
 * List of all items by type
 * Reporting Points
   *  Downtime
@@ -48,8 +46,11 @@ Output templates
   * Equipment 
   * Material
   * Personnel
-
-
+* Common Items
+  * Users
+  * Data Repository
+  * Code items
+  
 Example output
 ===
 
